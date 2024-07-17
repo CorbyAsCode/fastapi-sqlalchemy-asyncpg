@@ -19,4 +19,4 @@ async def find_paragraph(
     character: Annotated[str, Query(description="Character name")],
     db_session: AsyncSession = Depends(get_db),
 ):
-    return await Paragraph.find(db_session=db_session, character=character)
+    return await Paragraph.find(db_session=db_session, character=character.capitalize())
